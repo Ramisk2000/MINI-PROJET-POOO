@@ -3,7 +3,7 @@
 #include <vector>
 #include <fstream>
 #include "PersistancePrixJournaliers.h"
-#include "date.ccp"
+#include "date.h"
 
 
 using namespace std;
