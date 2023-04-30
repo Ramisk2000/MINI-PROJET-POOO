@@ -29,13 +29,12 @@ public:
 istream& operator >>(istream& in,PrixJournalier p)
 {   PrixJournalier &tab[255];
 
-    in.getline (tab,10);
-    P.date=atoi(tab);
-    in.getline(tab,)
-    p.nomAction=atoi(tab);
-
-    in.getline (tab,);
-    p.prix=atoi(tab);
+   in.getline (tab,10);
+   p.date=atoi(tab);
+   in.getline(tab,10,' ')
+   p.nomAction=atoi(tab);
+   in.getline (tab,);
+   p.prix=atoi(tab);
 
 
     return in;
