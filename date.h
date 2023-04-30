@@ -4,7 +4,7 @@
 #include<iomanip>
 #include<fstream>
 using namespace std;
-//fgfuut
+
 class Date
 {
 private :
@@ -13,7 +13,12 @@ private :
     public :
     friend ostream& operator<<(ostream& out,Date d);
     friend istream& operator>>(istream& in,Date d);
-
+    friend bool operator<(Date &d1,Date &d2);
+    friend bool operator==(Date &d1,Date &d2);
+    
+    
+    
+    
     Date(int jj, int mm, int aaaa)
     {
         jour = jj;
@@ -73,18 +78,18 @@ ostream& operator<<(ostream& out,Date d)
        out<<setw(2)<<setfill('0')<<d.getJour()<<'/'<<setw(2)<<setfill('0') <<d.getMois()<<'/'<<d.getAnnee()<<endl;
        return out;
     }
-istream& operator >>(istream& in,Date d)
+istream& operator>>(istream& in,Date d)
 {
-    /*char tab[100];
-    in.getline (tab,2,'/');
+    char tab[255];
+    in.getline (tab,3,'/');
     d.jour=atoi(tab);
-    in.getline (tab,2,'/');
+    in.getline (tab,3,'/');
     d.mois=atoi(tab);
-    in.getline (tab,4);
-    d.annee=atoi(tab);*/
-    ifstream fichier("prices_simple.csv");
-    while (getline(fichier,d,'/'))
-    {
+    in.getline (tab,5);
+    d.annee=atoi(tab);
+    //ifstream fichier("prices_simple.csv");
+    //while (getline(fichier,d,'/'))
+{
 
     }
 
@@ -110,6 +115,29 @@ void Date::incremDate()
         annee++;
        }
     }
+    bool operator<(Date &d1,Date &d2)
+{
+    if (d1.getAnnee()<d2.getAnnee())
+        return true;
+    else if (d1.getAnnee()==d2.getAnnee()&&(d1.getMois()<d2.getMois()))
+           return true;
+             else if ((d1.getAnnee()==d2.getAnnee())&&(d1.getMois()==d2.getMois())&&(d1.getJour()<d2.getJour()))
+               return true;
+                else
+                return false;
+}
+
+bool operator==(Date &d1,Date &d2)
+{
+      if ((d1.getJour()==d2.getJour())&&(d1.getMois()==d2.getMois())&&(d1.getAnnee()==d2.getAnnee()))
+        return true;
+    else
+        return false;
+
+}
+    
+    
+    
 }
 
 
@@ -134,5 +162,5 @@ int main()
 
 
     return 0;
-}'
+}
 #endif
