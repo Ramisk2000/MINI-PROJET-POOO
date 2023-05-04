@@ -26,6 +26,14 @@ private :
         annee = aaaa;
 
     }
+    
+    
+     Date()
+    {
+        cout<<"l'objet a ete cree "<<endl;
+    }
+    
+    
     bool dateValide()const
     {
 
