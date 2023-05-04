@@ -12,35 +12,39 @@ private :
      string nomAction;
      Date date;
      float prix;
-     friend istream& operator >>(istream& in,PrixJournalier p);
-
+     friend istream& operator >>(istream& in,const PrixJournalier& p);
+     friend ostream& operator<<(ostream& os, const PrixJournalier& p);
 public:
     string getNomAction(){return nomAction;}
     Date getDate(){return date;}
     int getPrix(){return prix;}
-    PrixJournalier(string na, Date d(6,9,2001) ,float p)
+    PrixJournalier(string na, Date d ,float p)
     {
       nomAction=na;
       date=d;
       prix=p;
     }
 
-}
+};
 istream& operator >>(istream& in,PrixJournalier p)
 {   PrixJournalier &tab[255];
 
-   in.getline (tab,10);
-   p.date=atoi(tab);
-   in.getline(tab,10,' ')
-   p.nomAction=atoi(tab);
-   in.getline (tab,);
-   p.prix=atoi(tab);
+    in.getline (tab,10);
+    P.date=atoi(tab);
+    in.getline(tab,)
+    p.nomAction=atoi(tab);
+    in.getline (tab,);
+    p.prix=atoi(tab);
 
 
     return in;
 
 }
-
+ostream& operator<<(ostream& os, const PrixJournalier& p)
+{
+        os << p.date << " " << p.nomAction << " " << p.prix << ;
+        return os;
+}
 
 
 int main()
