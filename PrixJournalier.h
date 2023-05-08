@@ -12,15 +12,15 @@ class PrixJournalier
 private :
      string nomAction;
      Date date;
-     int prix;
+     double prix;
 
 public:
     friend istream& operator>>(istream& in, PrixJournalier& prix);
     string getNomAction(){return nomAction;}
     Date getDate(){return date;}
-    int getPrix(){return prix;}
+    double getPrix(){return prix;}
     PrixJournalier() {};
-    PrixJournalier (string na, const Date d ,int p):date(d)
+    PrixJournalier (string na, const Date d ,double p):date(d)
     {
       nomAction=na;
       prix=p;
